@@ -1,0 +1,60 @@
+{
+  "name": "Azure-Monitor-Trigger",
+  "type": "trigger",
+  "execProgram": "node",
+  "main": "app.js",
+  "imgUrl": "logo.png",
+  "version": "1.0.0",
+  "description": "Handles Azure Monitor Webhooks",
+  "methods": [
+    {
+      "name": "alertWebhook",
+      "route": "post /webhook/azure/alert",
+      "viewName": "Alert",
+      "params": [
+        {
+          "name": "alertNamePat",
+          "viewName": "Alert Rule Pattern",
+          "type": "string"
+        },
+        {
+          "name": "alertSeverity",
+          "viewName": "Alert Severity",
+          "type": "options",
+          "options": 
+          [
+            {
+              "id": "Any",
+              "name": "Any"
+            },
+            {
+              "id": "Critical",
+              "name": "Critical"
+            },
+            {
+              "id": "Error",
+              "name": "Error"
+            },
+            {
+              "id": "Warning",
+              "name": "Warning"
+            },
+            {
+              "id": "Informational",
+              "name": "Informational"
+            },
+            {
+              "id": "Verbose",
+              "name": "Verbose"
+            }
+          ]
+        },
+        {
+          "name": "includeHigherSeverity",
+          "viewName": "Include Higher Severity",
+          "type": "boolean"
+        }
+      ]
+    }
+  ]
+}
